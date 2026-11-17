@@ -1,0 +1,38 @@
+name: Aggiorna Tassi Mutui BCE
+
+on:
+  schedule:
+    # Ogni lunedì alle 07:00 UTC (08:00 / 09:00 ora italiana)
+    - cron: "0 7 * * 1"
+  # Permette di avviarlo manualmente con un clic dalla tab Actions
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scarica tassi BCE e aggiorna JSON
+        run: python3 scripts/update_rates.py
+
+      - name: Commit e push se ci sono aggiornamenti
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rates_config.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: aggiorna benchmark tassi BCE ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "Nessuna modifica da committare."
+          fi
