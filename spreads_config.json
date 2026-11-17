@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "minAppVersion": "1.0.0",
+  "irsSwapSpreadOffsetE6": 2500,
+  "spreadsByLtv": [
+    {
+      "maxLtv": 0.5,
+      "fixed": 3500,
+      "variable": 6500
+    },
+    {
+      "maxLtv": 0.8,
+      "fixed": 4500,
+      "variable": 8000
+    },
+    {
+      "maxLtv": 1.0,
+      "fixed": 9500,
+      "variable": 13000
+    }
+  ],
+  "greenDiscount": 3000
+}
