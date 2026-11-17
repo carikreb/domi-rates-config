@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-17",
+  "publishedAt": "2026-11-17T07:00:00Z",
+  "source": "BCE (European Central Bank Data Portal) + Benchmark Domì",
+  "eurirs": {
+    "10": 25500,
+    "15": 26500,
+    "20": 27000,
+    "25": 26800,
+    "30": 26200
+  },
+  "euribor": {
+    "1m": 25000,
+    "3m": 26200
+  },
+  "spreadsByLtv": [
+    {
+      "maxLtv": 0.5,
+      "fixed": 3500,
+      "variable": 6500
+    },
+    {
+      "maxLtv": 0.8,
+      "fixed": 4500,
+      "variable": 8000
+    },
+    {
+      "maxLtv": 1.0,
+      "fixed": 9500,
+      "variable": 13000
+    }
+  ],
+  "greenDiscount": 3000,
+  "minAppVersion": "1.0.0"
+}
